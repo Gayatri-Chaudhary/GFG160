@@ -1,0 +1,26 @@
+brute force approach 
+1. sort array and return second last element
+TC = O(Nlog(N))
+SC = O(1)
+
+
+// optimised approach
+//check for max while traversing and update smax and max but there is one case where our answer lies between max and current element 
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        // Code Here
+        int max=0,smax=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] > max){
+                smax = max;
+                max=arr[i];
+            }
+            else if(arr[i] > smax && arr[i]!=max){
+                smax = arr[i];
+            }
+        }
+        return smax==0?-1:smax;
+        }
+}
+TC = O(N)
+SC = O(1)
